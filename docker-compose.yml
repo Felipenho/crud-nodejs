@@ -1,0 +1,33 @@
+version: '3.7'
+
+services: 
+  db:
+    image: mongo:latest
+    expose: ['27017']
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: 'admin'
+      MONGO_INITDB_ROOT_PASSWORD: 'mongo'
+      MONGO_INITDB_DATABASE: 'crud-nodejs'
+
+
+  express:
+    image: mongo-express
+    ports: 
+    - "80:8081"
+    depends_on: 
+    - db
+    environment: 
+      ME_CONFIG_MONGODB_SERVER: 'db'
+      ME_CONFIG_MONGODB_ENABLE_ADMIN: 'true'
+      ME_CONFIG_MONGODB_ADMINUSERNAME: 'administrador'
+      ME_CONFIG_MONGODB_ADMINPASSWORD: 'loc4ladm'
+      ME_CONFIG_BASICAUTH_USERNAME: 'admin'
+      ME_CONFIG_BASICAUTH_PASSWORD: 'mongo'
+      
+
+  crud:
+    build: .
+    ports:
+    - "81:4100"
+    depends_on: 
+    - db

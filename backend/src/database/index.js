@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const db = "mongodb://db:27017/crud-nodejs";
+const db = "mongodb://mongo:27017/crud-nodejs";
 
 mongoose.connect(db, { 
   useUnifiedTopology: true, 

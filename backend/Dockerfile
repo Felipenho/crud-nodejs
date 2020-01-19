@@ -9,4 +9,6 @@ COPY . /home/node
 
 RUN yarn
 
+EXPOSE 81/tcp 4100/tcp
+
 CMD [ "yarn", "dev" ]

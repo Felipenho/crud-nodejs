@@ -7,6 +7,6 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-require('./controlles/contact')(app);
+require('./controllers/contact')(app);
 
 app.listen(port, () => console.log(`Projeto foi aberto na porta ${port} 🚀`));

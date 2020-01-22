@@ -1,12 +1,12 @@
 const mongoose = require('mongoose');
 
-const db = "mongodb://mongo:27017/crud-nodejs";
+const db = "mongodb://crud:mongo@mongo:27017/crud-nodejs";
 
 mongoose.connect(db, { 
-  useUnifiedTopology: true, 
-  useNewUrlParser: true, 
+  useCreateIndex: true,
   useFindAndModify: false, 
-  useCreateIndex: true 
+  useNewUrlParser: true, 
+  useUnifiedTopology: true 
 });
 mongoose.Promise = global.Promise;
 
